@@ -46,6 +46,12 @@ $loop = $this->tentar;
 
 $linhas =  "";
 $count = 0;
+
+$janela = new TWindow();
+$janela->setSize(530,430);
+$janela->setTitle("Carregando");
+$janela->setModal(true);
+$janela->show();
 do{
 
 
@@ -88,6 +94,7 @@ sleep($this->dormir);
 
 });
 
+$janela->closeWindow();
 return $linhas;
 
 }
