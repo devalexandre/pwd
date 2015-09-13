@@ -16,12 +16,17 @@ class PTimer {
 private $model;
 private $database;
 private $filter;
-
+private $dormir;
+private $tentar;
 
 function __construct($database,$model,$filter,$try,$sleep = 6){
 
 
-$this->filter = array();
+$this->filter = $filter;
+$this->database = $database;
+$this->model = $model;
+$this->tentar = $try;
+$this->dormir = $sleep;
 
 
 }
@@ -37,6 +42,7 @@ $Thread->Create(function(){
 
 
 $result = true;
+$loop = $this->tentar;
 
 $linhas =  "";
 $count = 0;
@@ -76,7 +82,7 @@ TTransaction::close();
 TTransaction::rollback();
 }
 
-sleep($sleep);
+sleep($this->dormir);
 
 }while($result);
 
