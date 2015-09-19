@@ -7,10 +7,15 @@ class PNoteBook extends TElement{
  protected $ul;
  protected  $content;
  protected $page_active;
+ protected $width;
+ protected $heigth;
 
     public function __construct($width,$heigth)
     {
         parent::__construct('div');
+
+$this->width =  $width;
+$this->heigth = $heigth;
 
 
         $this->id = 'tabs'.uniqid();
@@ -22,9 +27,9 @@ $heigth1 = $heigth +20;
         $this->ul->id = 'pnotebook'.uniqid();
         
         $this->ul->class="tabs";
-        $this->style= "width :{$width1}px;heigth :{$heigth1}px;";
+        $this->style= "width :{$this->width1}px;min-heigth :{$this->heigth}px;";
         
-$this->ul->style= "width : {$width}px;heigth :{$heigth}px";
+$this->ul->style= "width : {$this->width}px;min-heigth :{$this->heigth}px";
 
 
 
@@ -71,9 +76,11 @@ $li->add($a);
 
 
             $conteudo = new TElement('div');
+            $conteudo2 = new TElement('div');
 
             $conteudo->id = $item;
             $conteudo->add($value);
+
 
             parent::add($conteudo);
 

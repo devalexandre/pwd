@@ -1,104 +1,94 @@
 <?php
 
-Namespace Pwd\PTime;
-
-
-
-use Adianti\Widget\Dialog\TMessage;
-use Adianti\Database\TTransaction;
-use Adianti\Database\TRecord;
-use Pwd\PTime\Thread;
-use Exception;
-
+/**
+ * PCepProgs 
+ *
+ * @version    1.0
+ * @version adianti framework 2.0
+ * @package    PTimer
+ * @author     Alexandre E. Souza
+ 
+ */
+ 
 
 class PTimer {
 
+private $banco;
 private $model;
-private $database;
-private $filter;
-private $dormir;
-private $tentar;
+private $action;
+private $time;
+private $campos;
+private $key;
 
-function __construct($database,$model,$filter,$try,$sleep = 6){
+/**
+@param $banco banco a ser usado
+@param  $model model a ser usada
+@param  $campos  campos a serem exibidos
+@param  $action type array (controller,action)
+@param $key  key da action 
+@param  $time tempo para reexecutar o timer
+
+*/
+function __construct($banco,$model,$campos,$action,$key,$time){
 
 
-$this->filter = $filter;
-$this->database = $database;
+$this->banco = $banco;
 $this->model = $model;
-$this->tentar = $try;
-$this->dormir = $sleep;
+$this->action = $action;
+$this->time = $time;
+$this->campos = $campos;
+$this->key = $key;
+
+}
+
+
+
+
+
+public function show(){
+
+
+$time = new TElement('div');
+
+$time->id = "ptimer_".uniqid();
+
+$campos = serialize($this->campos);
+$action = serialize($this->action);//$campos = base64_encode($campos);
+
+
+if(!file_exists('timer.php')){
+
+$file = file_get_contents('app/lib/PWD-Lib/PTimer/timer.php');
+$fp = fopen("timer.php", "a");
+ 
+
+$escreve = fwrite($fp, "$file");
+ 
+// Fecha o arquivo
+fclose($fp);
+}
+$url = "'timer.php'";
+
+
+$code = "
+
+runPtimer($url,'$this->model','$this->banco','$campos','$action','$this->key',$this->time,'$time->id');
+
+";
+
+ TScript::create($code);
+ 
+
+
+
+$time->show();
+
+}
+
 
 
 }
 
 
-public function create(){
-
-$Thread = new Thread();
-
-$Thread->Create(function(){
-
-	
-
-
-$result = true;
-$loop = $this->tentar;
-
-$linhas =  "";
-$count = 0;
-
-$janela = new TWindow();
-$janela->setSize(530,430);
-$janela->setTitle("Carregando");
-$janela->setModal(true);
-$janela->show();
-do{
-
-
-try{
-
-TTransaction::open("$this->database");
-
-$criteria = new TCriteria();
-$criteria->add($this->filter);
-
-$repo = new TRepository("$this->model");
-
-if($repo->count($criteria) > 0){
-
-$linhas =  $repo->load($criteria);
-$result = false;
-
-}else{
-
-$count++;
-$linhas = 0;
-}
-
-if($count == $loop){
-
-$result = false;
-
-}
-TTransaction::close();
-
-
-}catch(Exception $e){
-
-TTransaction::rollback();
-}
-
-sleep($this->dormir);
-
-}while($result);
-
-});
-
-$janela->closeWindow();
-return $linhas;
-
-}
-
-}
 
 ?>

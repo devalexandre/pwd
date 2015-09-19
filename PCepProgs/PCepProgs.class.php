@@ -1,12 +1,12 @@
 <?php
-Namespace Pwd\PCepProgs;
+Namespace PWD-Lib\PCepProgs;
 
 
 
 /**
  * PCepProgs 
  *
- * @version    1.5
+ * @version    1.6
  * @version adianti framework 2.0
  * @package    PCepProgs
  * @author     Alexandre E. Souza
