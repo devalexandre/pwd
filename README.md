@@ -24,7 +24,7 @@ The **PWD** is a library for developing web applications with "Adianti Framework
 move PWD folder for app/lib in your application
 And add:
 
- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+ <script type="text/javascript" src="//www.gstatic.com/charts/loader.js"></script>
  in you library.html
 
 Get the **Genesis** with:
