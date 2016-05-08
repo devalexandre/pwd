@@ -1,23 +1,14 @@
 <?php
-Namespace Pwd\PForm;
 
-use Adianti\Widget\Form\AdiantiWidgetInterface;
-use Adianti\Widget\Base\TElement;
-use Adianti\Widget\Base\TScript;
-use Adianti\Widget\Form\TField;
-use Adianti\Control\TAction;
-use Adianti\Core\AdiantiCoreTranslator;
-use Exception;
 
 /**
- * Entry Widget
+ * PEntry Widget
  *
- * @version    2.0
- * @package    widget
+ * @version    3.0
+ * @package    PWD
  * @subpackage form
- * @author     Pablo Dall'Oglio
- * @copyright  Copyright (c) 2006-2014 Adianti Solutions Ltd. (http://www.adianti.com.br)
- * @license    http://www.adianti.com.br/framework-license
+ * @author     Alexandre Evangelista de Souza
+ *@ description Fiend with mask dinamic
  */
 class PEntry extends TField implements AdiantiWidgetInterface
 {

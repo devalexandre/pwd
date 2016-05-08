@@ -1,4 +1,18 @@
 <?php
+
+
+
+/**
+ * PEntry Widget
+ *
+ * @version    3.0
+ * @package    PWD
+ * @subpackage PMidia
+ * @author     Alexandre Evangelista de Souza
+ *
+ */
+ 
+ 
 class PVideo extends TElement{
 
  protected $sources;

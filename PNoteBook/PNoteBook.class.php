@@ -1,6 +1,17 @@
 <?php
 
 
+/**
+ * PEntry Widget
+ *
+ * @version    3.0
+ * @package    PWD
+ * @subpackage PNoteBook
+ * @author     Alexandre Evangelista de Souza
+ *@ description Notebook with jquery ui
+ */
+ 
+ 
 class PNoteBook extends TElement{
 
  protected $elements;
