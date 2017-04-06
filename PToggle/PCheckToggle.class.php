@@ -1,4 +1,10 @@
 <?php
+
+namespace Pwd\PToggle;
+
+use Adianti\Widget\Form\AdiantiWidgetInterface;
+use Adianti\Widget\Form\TField;
+
 /**
  * @autor Alexandre E Souza
  * PCheckToggle .01
