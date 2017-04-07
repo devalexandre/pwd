@@ -17,7 +17,7 @@ class PRadioToggle extends TField implements AdiantiWidgetInterface
     public function show()
     {
     
-          TPage::include_css('app/lib/pwd/pcomponents.css');
+          TPage::include_css('app/lib/pwd/pcomponents.min.css');
   
          // base64 
          $base = new TElement('label');
