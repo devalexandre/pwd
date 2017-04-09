@@ -1,10 +1,4 @@
 <?php
-namespace Pwd\PToggle;
-
-use Adianti\Widget\Form\AdiantiWidgetInterface;
-use Adianti\Widget\Form\TField;
-use Adianti\Control\TPage;
-use Adianti\Widget\Base\TElement;
 
 
 class PRadioToggle extends TField implements AdiantiWidgetInterface

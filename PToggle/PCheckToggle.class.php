@@ -1,15 +1,6 @@
 <?php
 
-namespace Pwd\PToggle;
 
-use Adianti\Widget\Form\AdiantiWidgetInterface;
-use Adianti\Widget\Form\TField;
-
-/**
- * @autor Alexandre E Souza
- * PCheckToggle .01
- * Adianti Framework 4.0
- */
 class PCheckToggle extends TField implements AdiantiWidgetInterface
 {
     private $indexValue = 0;

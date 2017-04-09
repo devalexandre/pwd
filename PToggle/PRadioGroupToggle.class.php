@@ -1,18 +1,5 @@
 <?php
-namespace Pwd\PToggle;
 
-use Adianti\Widget\Form\AdiantiWidgetInterface;
-use Adianti\Core\AdiantiCoreTranslator;
-use Adianti\Control\TAction;
-use Adianti\Widget\Base\TElement;
-use Adianti\Widget\Base\TScript;
-use Adianti\Widget\Form\TForm;
-use Adianti\Widget\Form\TLabel;
-use Adianti\Widget\Form\TField;
-use Adianti\Widget\Form\TRadioButton;
-use Adianti\Widget\Form\TRadioGroup;
-
-use Exception;
 
 class PRadioGroupToggle extends TField implements AdiantiWidgetInterface
 {
