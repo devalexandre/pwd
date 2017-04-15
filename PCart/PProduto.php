@@ -1,5 +1,5 @@
 <?php
-namespace Pwd\PCart;
+
 
 
 class PProduto{
