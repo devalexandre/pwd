@@ -70,7 +70,14 @@ TSession::setValue('cart',array());
 TSession::setValue('cart',$this->cart);
  }
  
+ public function getTotal(){
+	 $total = 0;
 
+	 foreach (PCart::getItens() as $itens ) {
+		
+    $total = $itens->getPreco();
+	 }
+ }
  
  }// fim class
 

@@ -188,4 +188,8 @@ class PagSeguroConfig
 
         return $requirements;
     }
+
+    public static function setEnvironment($environment){
+        self::$data['environment'] = $environment;
+    }
 }
