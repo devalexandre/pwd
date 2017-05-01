@@ -260,7 +260,7 @@ $status = '';
                     break;
             }
  
-            return array('status' => $status,'transaction' => $transaction);
+            return array('status' => $status,'transaction' => $transaction->getCode());
 }
  
     private function init($file){

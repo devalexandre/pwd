@@ -75,8 +75,10 @@ TSession::setValue('cart',$this->cart);
 
 	 foreach (PCart::getItens() as $itens ) {
 		
-    $total = $itens->getPreco();
+    $total = $itens->getPreco() * $itens->getQtd();
 	 }
+
+   return $total;
  }
  
  }// fim class
